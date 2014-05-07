@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 
 namespace Nightmare {
+    /// <summary>
+    /// Игрок, общая настроечная информация по персонажам.
+    /// </summary>
     public class Player : Users {
         public Dictionary<string, List<int>> classes = new Dictionary<string, List<int>> {
             {"Warrior", new List<int>   {8, 6, 7, 9, 7, 9, 8}},

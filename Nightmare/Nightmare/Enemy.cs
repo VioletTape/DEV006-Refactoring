@@ -1,6 +1,10 @@
 ﻿using System.Collections.Generic;
 
 namespace Nightmare {
+    /// <summary>
+    /// Базовый класс для супостатов, которые встречаются главному герою
+    /// Здесь определяется урон и защита существа. 
+    /// </summary>
     public abstract class Enemy {
         public int Life = 10;
         public int Stamina = 10;

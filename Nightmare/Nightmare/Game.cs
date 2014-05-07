@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 
 namespace Nightmare {
+    /// <summary>
+    /// класс отвечает за игровую механику. Проведение ходов, увеличение уровня персонажа, начало боя. 
+    /// Создает области игры по которым передвигается персонаж. 
+    /// </summary>
     public class Game {
         private List<Attack> charAttack;
         private List<Attack> beastAttack;

@@ -1,5 +1,9 @@
 ﻿namespace Nightmare {
+    /// <summary>
+    /// 
+    /// </summary>
     public class WeaponSelector {
+
         private Weapon weapon;
 
         public Weapon Generate(string name, Game game) {

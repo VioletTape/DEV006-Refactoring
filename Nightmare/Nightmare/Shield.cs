@@ -1,4 +1,7 @@
 ﻿namespace Nightmare {
+    /// <summary>
+    /// Щит
+    /// </summary>
     public class Shield : Item {
         public int Id;
         public int Defence;

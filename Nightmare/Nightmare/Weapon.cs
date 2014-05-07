@@ -1,4 +1,7 @@
 ﻿namespace Nightmare {
+    /// <summary>
+    /// Оружие
+    /// </summary>
     public class Weapon : Item {
         public int Id;
 

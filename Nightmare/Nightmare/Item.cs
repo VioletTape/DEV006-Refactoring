@@ -1,4 +1,7 @@
 ﻿namespace Nightmare {
+    /// <summary>
+    /// Игровой предмет
+    /// </summary>
     public abstract class Item {
         /// <summary>
         /// Name of the item

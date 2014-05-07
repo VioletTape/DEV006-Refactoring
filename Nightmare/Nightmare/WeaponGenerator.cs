@@ -1,6 +1,11 @@
 ﻿using System;
 
+
 namespace Nightmare {
+    /// <summary>
+    /// Сервис генерирует оружие рандомно с параметрами 
+    /// зависящими от уровня игрового персонажа
+    /// </summary>
     public class WeaponGenerator {
         public Weapon Generate(Character character) {
             var random = new Random();

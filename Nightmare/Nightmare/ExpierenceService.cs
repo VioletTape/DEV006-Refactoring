@@ -1,6 +1,10 @@
 ﻿using System;
 
 namespace Nightmare {
+    /// <summary>
+    /// Сервис отвечает за рассчет опыта, который получит главный герой после 
+    /// победы над монстром
+    /// </summary>
     public class ExpierenceService {
         public void AddXp(Character character, Beast beast) {
             if (beast == null) {

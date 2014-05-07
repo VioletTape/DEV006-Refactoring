@@ -3,7 +3,9 @@ using System.Linq;
 
 namespace Nightmare {
     /// <summary>
-    /// 
+    /// Класс описывает текущего игрового персонажа которым управляют. Здесь собраны все его характеристики
+    /// такие как: уровень, жизнь, опыт, вещи в рюкзаке. 
+    /// Рассчитываются показатели урона и защиты. 
     /// </summary>
     public class Character {
         public List<Item> Bag = new List<Item>();
@@ -20,6 +22,9 @@ namespace Nightmare {
         /// </summary>
         public decimal Xp { get; set; }
 
+        /// <summary>
+        /// Игрок создается с первым уровнем
+        /// </summary>
         public Character() {
             Level = 1;
         }
@@ -28,6 +33,11 @@ namespace Nightmare {
             return string.Join(":", dices);
         }
 
+        /// <summary>
+        /// Рассчет атаки в зависимости от характеристик используемого оружия, 
+        /// и собственных умений
+        /// </summary>
+        /// <returns></returns>
         public List<Attack> Attack() {
             var weapons = new List<Weapon>();
             var shields = new List<Shield>();
@@ -67,6 +77,10 @@ namespace Nightmare {
             return new List<Attack> {attack};
         }
 
+        /// <summary>
+        /// Использовать оружие из инвентаря
+        /// </summary>
+        /// <param name="weapon"></param>
         public void Equip(Weapon weapon) {
             var result = weapon.CanWearFor(Player);
             if (result) {
@@ -83,6 +97,10 @@ namespace Nightmare {
             character.Player.Stamina = character.Player.MaxStamina;
         }
 
+        /// <summary>
+        /// Использовать одежду из инвентаря
+        /// </summary>
+        /// <param name="wear"></param>
         public void Equip(Wear wear) {
             var result = wear.CanWearFor(Player);
             if (result) {
