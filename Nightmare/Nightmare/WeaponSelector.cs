@@ -1,6 +1,6 @@
 ﻿namespace Nightmare {
     /// <summary>
-    /// 
+    /// Получение определенного оружия по его идентификатору. 
     /// </summary>
     public class WeaponSelector {
 
