@@ -104,9 +104,12 @@ namespace Nightmare {
                 throw new ArgumentException("Name should be filled");
             }
 
+            // получаем рандомное число из общего количества типа земель
+            var areaType = new Random().Next(5);
+
             return new Area {
                 Name = name,
-                AreaType = areaType,
+                AreaType = (AreaType)areaType,
                 DiscoverXp = discoverXp,
                 IsFightArea = IsFightArea,
                 IsMerchArea = IsMerchArea,

@@ -8,6 +8,10 @@ namespace Nightmare {
     /// Рассчитываются показатели урона и защиты. 
     /// </summary>
     public class Character {
+        /// <summary>
+        /// Инвентарь персонажа, куда складываются все вещи: 
+        /// склянки, оружие, одежда
+        /// </summary>
         public List<Item> Bag = new List<Item>();
         /// <summary>
         /// The player
@@ -21,6 +25,11 @@ namespace Nightmare {
         /// Current experience
         /// </summary>
         public decimal Xp { get; set; }
+
+        /// <summary>
+        /// Максимальный размер инвентаря персонажа
+        /// </summary>
+        public int MaxBagCapacity;
 
         /// <summary>
         /// Игрок создается с первым уровнем

@@ -61,5 +61,9 @@ namespace Nightmare {
         public void FillStamina(Character character) {
             character.Player.Stamina = character.Player.MaxStamina;
         }
+
+        public void AddXp(Character character, int xp) {
+            character.Xp += xp;
+        }
     }
 }

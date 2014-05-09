@@ -1,4 +1,6 @@
-﻿namespace Nightmare {
+﻿using System.Collections.Generic;
+
+namespace Nightmare {
     /// <summary>
     /// Класс содержит информацию об области где находится главный герой. 
     /// В зависимости от типа области накладываются штрафы или бонусы на героя 
@@ -24,8 +26,21 @@
         /// </summary>
         public int DiscoverXp;
 
+        private List<Beast> enemies = new List<Beast>();
+
+        public Area() {
+
+            if (IsFightArea) {
+                // todo: здесь надо генерировать список вражин для героя в этой местности
+            }
+
+            if (IsMerchArea) {
+                // todo: реализовать торговлю
+            }
+        }
+
         public void PlayerEnter(Character character) {
-            
+            new ExpierenceService().AddXp(character, DiscoverXp);
         }
     }
 }

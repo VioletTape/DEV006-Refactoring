@@ -64,14 +64,14 @@ namespace Nightmare {
         /// </summary>
         /// <returns></returns>
         private bool IsStunned() {
-            return Stunned > 0;
+            return Stunned != 0;
         }
     }
 
     /// <summary>
-    /// Структура для расчета повреждений во время боя
+    /// Класс для расчета повреждений во время боя
     /// </summary>
-    public struct Attack {
+    public class Attack {
         public int Power;
         public int Defence;
         public int Special;
