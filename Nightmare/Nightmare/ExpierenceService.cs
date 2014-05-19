@@ -6,6 +6,8 @@ namespace Nightmare {
     /// победы над монстром
     /// </summary>
     public class ExpierenceService {
+//        private Character character1;
+
         public void AddXp(Character character, Beast beast) {
             if (beast == null) {
                 throw new ArgumentNullException("beast");
@@ -65,5 +67,11 @@ namespace Nightmare {
         public void AddXp(Character character, int xp) {
             character.Xp += xp;
         }
+
+
+//        public void GiveExpierence(Character character, int xp) {
+//            character1 = character;
+//            character1.Xp += xp;
+//        }
     }
 }

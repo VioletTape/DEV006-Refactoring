@@ -28,6 +28,9 @@ namespace Nightmare {
 
         private List<Beast> enemies = new List<Beast>();
 
+        /// <summary>
+        /// Создание класса
+        /// </summary>
         public Area() {
 
             if (IsFightArea) {
@@ -41,6 +44,13 @@ namespace Nightmare {
 
         public void PlayerEnter(Character character) {
             new ExpierenceService().AddXp(character, DiscoverXp);
+
+//            if (character.Level > 10) {
+//                var bee = new Bee();
+//                var lion = new Lion();
+
+//                character.Attack();
+//            }
         }
     }
 }
