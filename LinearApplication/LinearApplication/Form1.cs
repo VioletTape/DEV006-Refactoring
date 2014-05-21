@@ -3,106 +3,85 @@ using System.Windows.Forms;
 
 namespace LinearApplication {
     public partial class Form1 : Form {
-        private int memory;
-        private bool oper;
-
-        private Button plusButton;
-        private Button minusButton;
-        private Button resultButton;
-        private Button ceButton;
-
         public Form1() {
             InitializeComponent();
 
-            InitFields();
-            CreateControls();
-            SubscribeOnEvents();
-        }
-
-        private void SubscribeOnEvents() {
-            plusButton.Click += PlusButtonOnClick;
-            minusButton.Click += MinusButtonOnClick();
-            resultButton.Click += ResultButtonOnClick();
-
-            var textbox1 = CreateTextBox();
-            ceButton.Click += CeButtonOnClick(textbox1);
-
-            textbox1.Leave += TextboxOnLeave(textbox1);
-        }
-
-        private void PlusButtonOnClick(object sender, EventArgs e) {
-            oper = true;
-            CreateTextBox().Text = "0";
-        }
+            var oper = true;
 
 
-        private EventHandler TextboxOnLeave(TextBox textbox1) {
-            return (s, a) => {
-                memory = oper
-                    ? memory + Int32.Parse(textbox1.Text)
-                    : memory - Int32.Parse(textbox1.Text);
-            };
-        }
-
-        private EventHandler CeButtonOnClick(TextBox textbox1) {
-            return (s, a) => {
-                textbox1.Text = "0";
-                memory = 0;
-            };
-        }
-
-        private EventHandler ResultButtonOnClick() {
-            return (s, a) => { CreateTextBox().Text = memory.ToString(); };
-        }
-
-        private EventHandler MinusButtonOnClick() {
-            return (s, a) => {
-                oper = false;
-                CreateTextBox().Text = "0";
-            };
-        }
-
-        private void InitFields() {
-            memory = 0;
-            oper = true;
-        }
-
-        private void CreateControls() {
-            Controls.Add(CreateTextBox());
-
-            plusButton = CreateButton(0, "+");
-            minusButton = CreateButton(50, "-");
-            resultButton = CreateButton(100, "=");
-            ceButton = CreateButton(150, "CE");
-        }
-
-        private Button CreateButton(int offset, string text) {
-            var button = new Button {
-                Text = text,
-                Width = 50,
-                Height = 50,
-                Top = 50,
-                Left = offset
-            };
-
-            Controls.Add(button);
-
-            return button;
-        }
-
-        private static TextBox CreateTextBox() {
             var textbox = new TextBox {
                 Text = "0",
                 TextAlign = HorizontalAlignment.Right,
                 Width = 100,
                 Height = 30
             };
-            return textbox;
-        }
-    }
 
-    public enum Operation {
-        plus,
-        minus
+            var button = new Button {
+                Text = "+",
+                Width = 50,
+                Height = 50,
+                Top = 50,
+                Left = 0
+            };
+
+            Controls.Add(button);
+            Controls.Add(textbox);
+
+            var button1 = new Button {
+                Text = "-",
+                Width = 50,
+                Height = 50,
+                Top = 50,
+                Left = 50
+            };
+
+            var memory = 0;
+            textbox.Leave += (EventHandler) ((s, a) => {
+                memory = oper
+                    ? memory + Int32.Parse(textbox.Text)
+                    : memory - Int32.Parse(textbox.Text);
+            });
+            Controls.Add(button1);
+
+            button.Click += (sender, e) => {
+                oper = true;
+
+                textbox.Text = "0";
+            };
+
+            var button2 = new Button {
+                Text = "=",
+                Width = 50,
+                Height = 50,
+                Top = 50,
+                Left = 100
+            };
+
+            var button3 = new Button {
+                Text = "CE",
+                Width = 50,
+                Height = 50,
+                Top = 50,
+                Left = 150
+            };
+            button3.Click += (EventHandler) ((s, a) => {
+                ((TextBox) textbox).Text = "0";
+                memory = 0;
+            });
+
+
+            Controls.Add(button2);
+            Controls.Add(button3);
+
+
+            button1.Click += (EventHandler) ((s, a) => {
+                oper = false;
+
+                textbox.Text = "0";
+            });
+
+
+            button2.Click += (EventHandler) ((s, a) => { textbox.Text = memory.ToString(); });
+        }
     }
 }
